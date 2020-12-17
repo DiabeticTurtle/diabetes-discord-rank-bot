@@ -17,9 +17,11 @@ os.environ["JISHAKU_HIDE"] = "True"
 
 @bot.event
 async def on_ready():
-    print(f"Bot is ready")
-    print("-" * 10)
+    print(f"Logged in as {bot.user.name}({bot.user.id})")
 
+@bot.command()
+async def ping(ctx):
+    await ctx.send("pong")
 #Load cogs
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -28,5 +30,4 @@ if __name__ == "__main__":
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
-
-bot.run(TOKEN)
+    bot.run(TOKEN)
