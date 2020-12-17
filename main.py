@@ -1,7 +1,6 @@
 import discord
 import os
 from discord.ext import commands
-from settings import token
 from utils.CustomBot import CustomBot
 
 bot = CustomBot(command_prefix="!",
