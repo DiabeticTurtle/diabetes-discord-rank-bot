@@ -10,6 +10,7 @@ bot = CustomBot(command_prefix="!",
                 activity = discord.Activity(type = discord.ActivityType.listening, name = "!help | !rank"))
 bot.embed_color = 0x2F3136
 startup_extensions = ['cogs.help', 'jishaku', 'cogs.errors', 'cogs.owner', 'cogs.ranks', 'cogs.listener', 'cogs.etc', 'cogs.moderator']
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 #Add jsk things
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
@@ -29,4 +30,4 @@ if __name__ == "__main__":
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
 
-bot.run(token())
+bot.run(TOKEN)
